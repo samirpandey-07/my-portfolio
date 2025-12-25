@@ -40,9 +40,9 @@ const Skills = () => {
       : skills.filter((skill) => skill.category === activeCategory);
 
   return (
-    <section id="skills" className="relative flex m-10 items-center justify-center min-h-screen w-full p-5 overflow-hidden scroll-mt-32">
+    <section id="skills" className="relative flex flex-col py-10 px-4 md:m-10 items-center justify-center min-h-screen w-full overflow-hidden scroll-mt-32">
       {/* Background blobs */}
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 -z-10 hidden md:block">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
         <div className="absolute top-40 right-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
         <div className="absolute bottom-20 left-1/3 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
@@ -50,7 +50,7 @@ const Skills = () => {
 
       <div className="container mx-auto max-w-5xl relative z-10">
         {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-white">
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center text-white">
           My <span className="text-blue-400">Skills</span>
           <div className="w-24 h-1 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 mx-auto mt-3 rounded-full" />
         </h2>
@@ -110,7 +110,7 @@ const SkillCard = ({ skill }) => {
   return (
     <motion.div
       ref={ref}
-      className="bg-white/5 dark:bg-black/40 p-6 rounded-2xl border border-gray-700/60 shadow-md hover:shadow-xl hover:border-blue-400/60 hover:scale-[1.02] transition-transform duration-200"
+      className="bg-white/5 dark:bg-black/40 p-4 md:p-6 rounded-2xl border border-gray-700/60 shadow-md hover:shadow-xl hover:border-blue-400/60 hover:scale-[1.02] transition-transform duration-200"
       variants={cardVariants}
       initial="hidden"
       animate={controls}

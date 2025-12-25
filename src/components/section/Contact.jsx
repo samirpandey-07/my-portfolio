@@ -32,9 +32,9 @@ const Contact = () => {
       initial="hidden"
       animate={controls}
       id="contact"
-      className="relative overflow-hidden p-10 m-10 scroll-mt-32"
+      className="relative overflow-hidden px-4 py-10 md:p-10 md:m-10 scroll-mt-32"
     >
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 -z-10 hidden md:block">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
         <div className="absolute top-40 right-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
         <div className="absolute bottom-20 left-1/3 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>

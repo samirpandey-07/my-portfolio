@@ -13,13 +13,14 @@ export default function ProjectCard({ image, tags, title, description, github, l
       transition={{ duration: 0.6, ease: "easeOut" }}
       viewport={{ once: true }}
       whileHover={{ scale: 1.03 }}
-      className="relative border w-[45vw] border-[#3C397A] overflow-hidden rounded-2xl flex flex-col bg-[#201A50]/40 backdrop-blur-md shadow-lg hover:shadow-indigo-500/20 transition-all duration-200"
+      className="relative border w-full border-[#3C397A] overflow-hidden rounded-2xl flex flex-col bg-[#201A50]/40 backdrop-blur-md shadow-lg hover:shadow-indigo-500/20 transition-all duration-200"
     >
       {/* Project Image */}
       <div className="relative w-full h-40 overflow-hidden z-1">
         <img
           src={image}
           alt={title}
+          loading="lazy"
           className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#201A50]/70 via-transparent to-transparent" />

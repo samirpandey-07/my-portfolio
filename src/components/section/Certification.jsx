@@ -14,8 +14,8 @@ const certifications = [
   {
     title: "INTRODUCTION TO SECURITY",
     provider: "IIT ROURKEE",
-    imgSrc: "/Nptel_Machine_Learning.jpeg",
-    link: "https://drive.google.com/file/d/1T3b9vcLMkwglTQaxpChshSjjxGkiitHK/view?usp=drive_link"
+    imgSrc: "/iit.jpg",
+    link: "https://drive.google.com/file/d/1cSSEQo2C6V4ncdnpFPp1etWTSVndCRk7/view?usp=drive_link"
   },
   {
     title: "GNA Hackathon 3.0 — 6th Position",

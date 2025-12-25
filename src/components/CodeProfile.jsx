@@ -27,14 +27,14 @@ const coderData = {
     "Node.js",
     "Express",
     "MongoDB",
-    "Git","MySQL","C++","Python", "DSA","GSAP","Framer Motion","Shadcn UI", "Redux","Zustand","Vercel","Netlify","Postman","more..."
+    "Git", "MySQL", "C++", "Python", "DSA", "GSAP", "Framer Motion", "Shadcn UI", "Redux", "Zustand", "Vercel", "Netlify", "Postman", "more..."
   ]
 };
 
 const CoderProfileCard = () => {
   return (
     <div className="max-w-xl w-full bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-lg shadow-xl overflow-hidden">
-      
+
       {/* Code Editor Top Bar */}
       <div className="flex items-center justify-between bg-gray-800 px-4 py-2">
         <div className="flex space-x-2">
@@ -48,8 +48,8 @@ const CoderProfileCard = () => {
       {/* Code Area */}
       <div className="relative px-4 py-6 bg-gray-900">
         {/* Background Glows */}
-        <div className="absolute -top-16 -left-16 w-48 h-48 bg-indigo-500 rounded-full opacity-20 blur-3xl"></div>
-        <div className="absolute -bottom-16 -right-16 w-48 h-48 bg-pink-500 rounded-full opacity-20 blur-3xl"></div>
+        <div className="absolute -top-16 -left-16 w-48 h-48 bg-indigo-500 rounded-full opacity-20 blur-3xl hidden md:block"></div>
+        <div className="absolute -bottom-16 -right-16 w-48 h-48 bg-pink-500 rounded-full opacity-20 blur-3xl hidden md:block"></div>
 
         <div className="flex">
           {/* Line Numbers */}

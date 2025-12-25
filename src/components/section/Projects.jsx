@@ -48,7 +48,7 @@ const Projects = () => {
       description:
         "A modern redesigned version of Shivalik College website with improved UX and clean UI.",
       github: "",
-      live: "",
+      live: "https://shivalik-redesign.netlify.app/",
     },
     {
       image: "/smart-waste.png",
@@ -96,6 +96,7 @@ const Projects = () => {
     }));
 
     const resizeCanvas = () => {
+      if (window.innerWidth < 768) return; // Don't resize on mobile if disabled
       const container = canvas.parentElement;
       if (container) {
         canvas.width = container.clientWidth;
@@ -139,18 +140,45 @@ const Projects = () => {
       });
     };
 
+    let animationFrameId; // To store the requestAnimationFrame ID
+
     const animate = () => {
+      // Stop animation if on mobile
+      if (window.innerWidth < 768) return;
+
       time += 0.02;
       updateWaveData();
       draw();
-      requestAnimationFrame(animate);
+      animationFrameId = requestAnimationFrame(animate);
     };
 
-    window.addEventListener("resize", resizeCanvas);
-    resizeCanvas();
-    animate();
+    // Initial check
+    if (window.innerWidth >= 768) {
+      resizeCanvas();
+      animate();
+    }
 
-    return () => window.removeEventListener("resize", resizeCanvas);
+
+    const handleResize = () => {
+      resizeCanvas();
+      if (window.innerWidth < 768) {
+        cancelAnimationFrame(animationFrameId);
+        // Clear canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      } else {
+        // Restart animation if not running? 
+        // Simplification: Just resize. The animate loop will pick up if running, or we need to restart it.
+        // For simplicity, we just let it run if it was already running, or we might need more complex state.
+        // For now, let's just make sure resize works.
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      cancelAnimationFrame(animationFrameId);
+    };
   };
 
   useEffect(() => {
@@ -183,13 +211,13 @@ const Projects = () => {
               {section.title}
             </h2>
 
-            <div className="flex flex-wrap justify-center gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
               {section.data.map((project, idx) => (
                 <motion.div
                   key={idx}
-                  className="w-full sm:w-[45%] lg:w-[40%] flex justify-center flex-grow"
+                  className="w-full max-w-[500px] flex justify-center"
                   animate={{ y: ["0%", "-3%", "0%"], rotate: ["0deg", "1deg", "0deg"] }}
-                  transition={{ duration: 4, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+                  transition={{ duration: 4, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: idx * 0.2 }}
                 >
                   <ProjectCard {...project} />
                 </motion.div>

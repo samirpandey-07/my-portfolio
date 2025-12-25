@@ -116,12 +116,17 @@ const Navbar = () => {
       document.querySelector(item.href)
     );
 
+    let lastRun = 0;
     const onScroll = () => {
+      const now = Date.now();
+      if (now - lastRun < 100) return; // Throttle to 100ms
+      lastRun = now;
+
       let current = "";
       sections.forEach((section, index) => {
         if (
           section &&
-          window.scrollY >= section.offsetTop - 80 // adjust based on navbar height
+          window.scrollY >= section.offsetTop - 150 // adjust based on navbar height
         ) {
           current = menuItems[index].href;
         }

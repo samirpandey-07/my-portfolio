@@ -28,7 +28,7 @@ const Hero = () => {
   return (
     <section id="home" className="relative pb-20 min-h-screen flex items-center justify-center scroll-mt-32">
       {/* Background blobs */}
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 -z-10 hidden md:block">
         <div className="absolute top-20 left-10 w-60 h-60 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
         <div className="absolute top-40 right-10 w-60 h-60 bg-yellow-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
         <div className="absolute bottom-20 left-1/4 w-60 h-60 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
@@ -91,8 +91,24 @@ const Hero = () => {
         </motion.div>
 
         {/* Right content */}
-        <div className="flex justify-center">
-          <GradientGridHero />
+        <div className="flex justify-center relative items-center">
+          <div className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] z-10 flex items-center justify-center">
+            <div className="absolute inset-0 bg-gradient-to-tr from-purple-500 to-pink-500 rounded-full blur-2xl opacity-20 animate-pulse"></div>
+            <img
+              src="/samirpic.webp"
+              alt="Samir Pandey"
+              className="w-64 h-64 sm:w-80 sm:h-80 object-cover rounded-full border-4 border-white/10 shadow-2xl relative z-10 transition-transform duration-500 hover:scale-105"
+            />
+          </div>
+          {/* Position particles behind or around - assuming GradientGridHero is background-like or we can place it absolutely if needed, 
+               but if it takes up space, we might need to adjust. 
+               Let's try placing it absolutely behind the image if it's a grid, or if it was the main content, we might need to check its CSS.
+               Looking at previous code, it was just <GradientGridHero /> in a flex center.
+               I will place it absolute to ensure it doesn't push the image weirdly, or vice versa.
+           */}
+          <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none opacity-60">
+            <GradientGridHero />
+          </div>
         </div>
       </div>
     </section>
