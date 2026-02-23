@@ -9,7 +9,7 @@ export default function CodeProfile() {
 }
 
 const coderData = {
-  name: "samir pandey",
+  name: "Samir Pandey",
   role: "Full Stack Developer",
   education: "Shivalik college of Engineering(B.TECH CSE[2024-2028])",
   seniority: "Fresher",
